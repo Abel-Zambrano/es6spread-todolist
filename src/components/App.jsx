@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import ToDoList from "./ToDoList";
 
 function App() {
   const [todo, setTodo] = useState("");
@@ -25,7 +26,7 @@ function App() {
       </div>
       <div className="form">
         <form action="">
-          <input onChange={changeList} type="text" value={todo} required/>
+          <input onChange={changeList} type="text" value={todo} required />
           <button onClick={addItem}>
             <span>Add</span>
           </button>
@@ -33,9 +34,9 @@ function App() {
       </div>
       <div>
         <ul>
-          {list.map(item => 
-          <li>{item}</li>
-          )}
+          {list.map((item, index) => {
+          return <ToDoList key={index} text={item} />
+          })}
         </ul>
       </div>
     </div>
